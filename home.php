@@ -9,6 +9,7 @@ if (!$conn) {
 }
 session_start();
 
+/*
 if ($_SESSION['sessionMode'] == "student"){
     $sql = "SELECT * FROM student WHERE studentNo = ". $_SESSION["sessionID"].";";
     $result = mysqli_query($conn, $sql);
@@ -22,6 +23,44 @@ if ($_SESSION['sessionMode'] == "student"){
     echo "</tr>";
     echo "</table>";
 }
+*/
+// Print welcome message at top of screen when logged in
+echo "<h2> Welcome ";
 
+if ($_SESSION['sessionMode'] == "student"){
+    $sql = "SELECT * FROM student WHERE studentNo = ". $_SESSION["sessionID"].";";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    echo $row['fName']. " ". $row['lName']. ", (#". $row['studentNo']. ")<h2>";
+}
+elseif($_SESSION['sessionMode'] == "staff"){
+    $sql = "SELECT * FROM staff WHERE staffNo = ". $_SESSION["sessionID"].";";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    echo $row['fName']. " ". $row['lName']. ", (#". $row['stafftNo']. ")<h2>";
+}
 
 ?>
+<html lang ="en">
+    <body>
+        <div>
+            <form id="logout" method="POST" action= index.php>
+                 <input type="submit" value="Logout">
+            </form>
+
+            <form id="sRecords" method="POST" action= records.php>
+                <input type="submit" value="View Records">
+            </form>
+
+            <form id="pInfo" method="POST" action= deptStats.php>
+                 <input type="submit" value="Department Statistics">
+            </form>
+
+            <form id="pInfo" method="POST" heatmap.php>
+                <input type="submit" value="Student Location Heatmap">
+            </form>
+
+        </div>
+    </body>
+
+</html>
