@@ -44,7 +44,7 @@ elseif($_SESSION['sessionMode'] == "staff"){
 <html lang ="en">
     <body>
         <div>
-            <form id="logout" method="POST" action= index.php>
+            <form id="logout" method="GET" action= index.php>
                  <input type="submit" value="Logout">
             </form>
 

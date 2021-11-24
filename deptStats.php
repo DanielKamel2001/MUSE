@@ -1,6 +1,8 @@
 <?php 
     // Include and call function to connect to db
+    include_once 'components/imports.php';
     include_once 'components/dbConnection.php';
+
     $conn = getConnection();
 
     // Check connection
@@ -13,8 +15,8 @@
     //Dep
     echo "<h3>Program Statistics<h3>";
     //Select all students and group by programName, count studentID
-    $query = "";
-    $qresult = mysqli_query($connection, $query);
+    $query = "select program, count(*) from student group by program";// = 'Software Engineering'";
+    $qresult = mysqli_query($conn, $query);
     
     echo "<table>";
     echo "<tr>";
@@ -23,10 +25,11 @@
     if ($qresult){
         while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
             // Stores details of table array in variables for output.
-            $variable = $row['value'];
+            //$variable = $row['fName'];
 
             echo "<tr>";
-            echo "<td>". $variable. "<td>";
+            echo "<td>".$row['program']."<td>";
+            echo "<td>".$row['count(*)']."<td>";
             echo "<tr>";
         }
     }
