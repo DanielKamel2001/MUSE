@@ -1,0 +1,50 @@
+/* Style the navbar */
+#navbar {
+    overflow: hidden;
+    background-color: #90CAF9;
+    font-family: Montserrat, sans-serif;
+    font-size: 20px;
+    z-index: 999;
+    padding: 10px 0 10px 10px;
+}
+
+/* Navbar links */
+#navbar a {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    margin-left: 10px;
+    font-family: Roboto, sans-serif;
+}
+
+.headerUsername {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+/* Page content */
+.content {
+    height: 40px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+    padding-top: 60px;
+
+}
+

@@ -1,0 +1,146 @@
+body {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+}
+
+input, label {
+    display:block;
+    font-family: Roboto, sans-serif;
+}
+
+input, textarea {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid black;
+}
+
+input {
+    height: 30px;
+}
+
+textarea {
+    resize: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Montserrat, sans-serif;
+}
+
+a {
+    color: #616161;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.formHeader {
+    font-family: Montserrat, sans-serif;
+}
+
+#formBody {
+    margin: 20px;
+}
+
+#submit {
+    background-color: #BBDEFB;
+    height: 40px;
+}
+
+.pageContent {
+    width: 70%;
+    margin: auto;
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 50px;
+    justify-content: center;
+}
+
+.indexTitle {
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+}
+
+/*--Home Listing Tiles--*/
+.listingTile{
+    position: relative;
+    float: left;
+
+    background-color: #90CAF9;
+    height:450px;
+
+    width: 20%;
+
+    border: 1px solid black;
+
+    margin: clamp(10px, 30px, 100px) clamp(10px, 30px, 100px) clamp(10px, 30px, 100px) 0;
+
+    display:flex;
+    flex-direction: column;
+
+}
+
+.postContent {
+    display:flex;
+    flex-direction: row;
+}
+
+.postBody {
+    margin-left: 20px;
+}
+
+.listingImage{
+    background-color: black;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.listingBigImage {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.actionButton {
+    max-width: 200px;
+    margin-right: 10px;
+}
+
+.listingText{
+    background-color: whitesmoke;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.listingHeader {
+    margin-left: 20px;
+}
+
+.gridLink {
+    text-decoration: none;
+    color: black;
+}
+
+.delbtn {
+    max-width: 20%;
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.error {
+    color: red;
+}
