@@ -11,13 +11,124 @@
 
     if ($_SESSION['sessionMode'] == "student"){
         // Display student's courses and grades
+        $sql = "SELECT * FROM student WHERE studentNo = ". $_SESSION["sessionID"].";";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        echo "<h2>Displaying Course History for: ";
+        echo $row['fName']. " ". $row['lName']. ", (Student Number:". $row['studentNo']. ")<h2>";
+
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Course Code</th> <th>Mark Achieved</th> <th>Season</th> <th>Year</th> <th>Class Type</th>";
+        echo "<tr>";
+
+        $query = "SELECT SECTIONS.course_code, ENROLLED.mark, SECTIONS.season, SECTIONS.year, SECTIONS.type
+        FROM student
+        JOIN ENROLLED on STUDENT.studentNo = ENROLLED.studentNo
+        JOIN SECTIONS on ENROLLED.CRN = SECTIONS.CRN
+        WHERE studentNo = ". $_SESSION["sessionID"]." ORDER BY SECTIONS.course_code ASC;";
+        $qresult = mysqli_query($conn, $query);
+
+        if ($qresult){
+            while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
+                $cc = $row['course_code'];
+                $mark = $row['mark'];
+                $season = $row['season'];
+                $year = $row['year'];
+                $type = $row['type'];
+
+                echo "<tr>";
+                echo "<td>". $cc. "<td>";
+                echo "<td>". $mark. "<td>";
+                echo "<td>". $season. "<td>";
+                echo "<td>". $year. "<td>";
+                echo "<td>". $type. "<td>";
+                echo "<tr>";
+            }
+        }
+        else{
+            echo "<tr>";
+            echo "<td>ERROR: NO MATCHING RECORDS!<td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+
+        // View 9
+        $query = "SELECT avg(mark) AS GPA FROM Enrolled
+        JOIN STUDENT on ENROLLED.studentNo = STUDENT.studentNo
+        JOIN SECTIONS on ENROLLED.CRN = SECTIONS.CRN
+        WHERE STUDENT.studentNo = ". $_SESSION["sessionID"] .";";
+        
+        $qresult = mysqli_query($conn, $query);
+        $avg = mysqli_fetch_assoc($qresult);
+        $avgstring = $avg['GPA'];
+    
+        echo "<h4>Eligible for Co-op/Internship?:</h4>";
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>GPA</th> <th>Eligible?</th>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<td>".$avgstring . "</td>";
+        if ($avgstring >= 67){
+            echo "<td> YES </td>";
+        }
+        else{
+            echo "<td> NO </td>";
+        }
+        echo "</tr>";
+        echo "</table>";
+
+
     
     }
     elseif($_SESSION['sessionMode'] == "staff"){
-        // Display professor's course sections, and sensitive views as outlined in Phase II
-    
-        // gonna need a loop to print out those rows of the table
-        //Query just needs to be updated to whatever we want
+        $sql = "SELECT * FROM STAFF WHERE staffNo = ". $_SESSION["sessionID"].";";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        echo "<h2>Records Department for: ";
+        echo $row['fName']. " ". $row['lName']. ", (Staff Number: ". $row['staffNo']. ")<h2>";
+        
+        echo "<h3>Assigned Sections for Current Year</h3>";
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Course Code</th> <th>CRN</th> <th>Section Number</th> <th>Season</th> <th>Year</th> <th>Class Type</th> <th>Class Size</th>";
+        echo "<tr>";
+        // Display professor's course sections for current year
+        $query = "SELECT course_code, CRN, sectionNo, season, year, type, size
+        FROM SECTIONS
+        WHERE profNo = ". $_SESSION["sessionID"]." AND year = YEAR(CURRENT_TIMESTAMP) 
+        ORDER BY course_code ASC, CRN ASC, sectionNo ASC;
+        ";
+        $qresult = mysqli_query($conn, $query);
+
+        if ($qresult){
+            while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
+                $cc = $row['course_code'];
+                $crn = $row['CRN'];
+                $sectNo = $row['sectionNo'];
+                $season = $row['season'];
+                $year = $row['year'];
+                $type = $row['type'];
+                $type = $row['size'];
+
+                echo "<tr>";
+                echo "<td>". $cc. "<td>";
+                echo "<td>". $mark. "<td>";
+                echo "<td>". $season. "<td>";
+                echo "<td>". $year. "<td>";
+                echo "<td>". $type. "<td>";
+                echo "<tr>";
+            }
+        }
+        else{
+            echo "<tr>";
+            echo "<td>ERROR: NO MATCHING RECORDS!<td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+
+  
 
         //View 1 
         echo "<h3>Student Performance by Highschool</h3>";
@@ -29,13 +140,11 @@
         ORDER BY CRN ASC";
 
         $qresult = mysqli_query($conn, $query);
-        // Print out each listing
         echo "<table>";
         echo "<tr>";
         echo "<th>Highschool</th><th>Student Number</th><th>Mark</th><th>CRN</th><th>Course Code</th><th>Professor Staff Number</th>";
         if ($qresult){
             while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
-                // Stores details of table array in variables for output.
                 $highschool = $row['highschool'];
                 $studentNo = $row['studentNo'];
                 $mark = $row['mark'];
@@ -58,6 +167,45 @@
             echo "</tr>";
         }
         echo "</table>";
+
+
+        //View 7 Sort Students by GPA
+        echo "<h3>Students with GPA 3.7 or Higher By Course CRN</h3>";
+        $query = "SELECT S.studentNo, S.fName, S.lname, E.mark, E.CRN
+        FROM STUDENT S, ENROLLED E
+        WHERE S.studentNo = ALL
+        (SELECT studentNo
+        FROM ENROLLED)
+        GROUP BY mark >= 80 ";
+        
+        $qresult = mysqli_query($conn, $query);
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Student Number</th><th>First Name</th><th>Last Name</th><th>Grade</th><th>Course CRN</th>";
+        if ($qresult){
+            while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
+                $studentNo = $row['studentNo'];
+                $fName = $row['fName'];
+                $lName = $row['lName'];
+                $mark = $row['mark'];
+                $crn = $row['CRN'];
+
+                echo "<tr>";
+                echo "<td>". $studentNo. "<td>";
+                echo "<td>". $fName. "<td>";
+                echo "<td>". $lName. "<td>";
+                echo "<td>". $mark. "<td>";
+                echo "<td>". $crn. "<td>";
+                echo "<tr>";
+            }
+        }
+        else{
+            echo "<tr>";
+            echo "<td>ERROR: NO MATCHING RECORDS!<td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+        
 
         // View 8
         echo "<h3>Residence Details by Highschool</h3>";

@@ -31,13 +31,13 @@ if ($_SESSION['sessionMode'] == "student"){
     $sql = "SELECT * FROM student WHERE studentNo = ". $_SESSION["sessionID"].";";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    echo $row['fName']. " ". $row['lName']. ", (#". $row['studentNo']. ")<h2>";
+    echo $row['fName']. " ". $row['lName']. ", (Student Number: ". $row['studentNo']. ")<h2>";
 }
 elseif($_SESSION['sessionMode'] == "staff"){
-    $sql = "SELECT * FROM staff WHERE staffNo = ". $_SESSION["sessionID"].";";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    echo $row['fName']. " ". $row['lName']. ", (#". $row['stafftNo']. ")<h2>";
+    $sql2 = "SELECT * FROM staff WHERE staffNo = ". $_SESSION["sessionID"].";";
+    $result2 = mysqli_query($conn, $sql2);
+    $row = mysqli_fetch_array($result2, MYSQLI_ASSOC);
+    echo $row['fName']. " ". $row['lName']. ", (Staff Number:". $row['staffNo']. ")<h2>";
 }
 
 ?>

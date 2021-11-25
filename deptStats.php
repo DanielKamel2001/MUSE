@@ -1,6 +1,6 @@
 <?php 
     // Include and call function to connect to db
-    include_once 'components/imports.php';
+    //include_once 'components/imports.php';
     include_once 'components/dbConnection.php';
 
     $conn = getConnection();
@@ -25,9 +25,6 @@
 
     if ($qresult){
         while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
-            // Stores details of table array in variables for output.
-            //$variable = $row['fName'];
-
             echo "<tr>";
             echo "<td>".$row['program']."<td>";
             echo "<td>".$row['count(*)']."<td>";
@@ -42,7 +39,7 @@
 
         echo "<tr>";
         echo "<td> TOTAL:<td>";
-        echo "<td>".$totalstring."</td>"; // if not array change to $qresult
+        echo "<td>".$totalstring."</td>";
         echo "<tr>";
     }
     else{
@@ -52,6 +49,42 @@
     }
     echo "</table>";
 
+
+    // View 4
+    echo "<h3>Professor Department Lookup</h3>";
+    $query = "SELECT Staff.fName, Staff.lName, BELONGS_TO.department
+    FROM STAFF
+    LEFT JOIN BELONGS_TO
+    ON STAFF.staffNo = BELONGS_TO.staffNo
+    UNION
+    SELECT Staff.fName, Staff.lName, BELONGS_TO.department
+    FROM STAFF
+    RIGHT JOIN BELONGS_TO
+    ON STAFF.staffNo = BELONGS_TO.staffNo";
+
+    $qresult = mysqli_query($conn, $query);
+    echo "<table>";
+    echo "<tr>";
+    echo "<th>First Name</th><th>Last Name</th><th>Department</th>";
+    if ($qresult){
+        while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
+            $fName = $row['fName'];
+            $lName = $row['lName'];
+            $dept = $row['department'];
+
+            echo "<tr>";
+            echo "<td>".$fName."<td>";
+            echo "<td>".$lName."<td>";
+            echo "<td>".$dept."<td>";
+            echo "<tr>";
+        }
+    }
+    else{
+        echo "<tr>";
+        echo "<td>ERROR: NO MATCHING RECORDS!<td>";
+        echo "</tr>";
+    }
+    echo "</table>";
 
     // View 10
     echo "<h3>Number of Students in Clear Academic Standing by Program</h3>";

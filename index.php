@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //        } else {
 //            $error = "User not found! Check your email address and try again.";
 //        }
-    } else if ($mode == "faculty") {
+    } else if ($mode == "staff") {
         // Check if the user exists
 //        if ($userExists) {
 ////            $error = "A user already exists with that username.";
@@ -79,10 +79,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $error = "Wrong password!";
             } else {
                 while ($row = $result->fetch_assoc()) {
-                    $_SESSION['sessionID'] = $row['studentNo'];
+                    $_SESSION['sessionID'] = $row['staffNo'];
                     $_SESSION['sessionMode'] = "staff";
                     //echo "your User id is ".$row['id']."<br>" ."session id is the same: ".$_SESSION['sessionID'];
-                    header("Location:index.php");
+                    header("Location:home.php");
 
                 }
             }
