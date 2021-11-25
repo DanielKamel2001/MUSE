@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div id="loginBox" >
     <div id="splitHeader">
         <button type="button" class="headerButton" id="studentLoginButton" onclick="studentMode()">Student Log In</button>
-        <button type="button" class="headerButton" id="staffLoginButton" onclick="staffMode()">Faculty Student Log In</button>
+        <button type="button" class="headerButton" id="staffLoginButton" onclick="staffMode()">Staff Log In</button>
     </div>
     <div id="formBody" >
         <h1 class="formHeader" id="loginTitle">Student Enrollment Records Login</h1>
