@@ -95,7 +95,7 @@
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         echo "<h2>Records Department for: ";
-        echo $row['fName']. " ". $row['lName']. " (Staff Number: ". $row['staffNo']. ")<h2>";
+        echo $row['fName']. " ". $row['lName']. ", (Staff Number: ". $row['staffNo']. ")<h2>";
         echo "<br>";
         echo "<h3>Assigned Sections for Current Year</h3>";
         echo "<table>";
@@ -118,14 +118,16 @@
                 $season = $row['season'];
                 $year = $row['year'];
                 $type = $row['type'];
-                $type = $row['size'];
+                $size = $row['size'];
 
                 echo "<tr>";
                 echo "<td>". $cc. "</td>";
-                echo "<td>". $mark. "</td>";
+                echo "<td>". $crn. "</td>";
+                echo "<td>". $sectNo. "</td>";
                 echo "<td>". $season. "</td>";
                 echo "<td>". $year. "</td>";
                 echo "<td>". $type. "</td>";
+                echo "<td>". $size. "</td>";
                 echo "</tr>";
             }
         }
@@ -146,7 +148,9 @@
         JOIN ENROLLED on STUDENT.studentNo = ENROLLED.studentNo
         JOIN SECTIONS on ENROLLED.CRN = SECTIONS.CRN
         JOIN STAFF on SECTIONS.profNo = STAFF.staffNo
-        ORDER BY SECTIONS.course_code ASC, STUDENT.studentNo ASC";
+        WHERE ENROLLED.mark is not NULL
+        ORDER BY SECTIONS.course_code ASC, STUDENT.studentNo ASC, STUDENT.highschool;";
+
         $qresult = mysqli_query($conn, $query);
         echo "<table>";
         echo "<tr>";
@@ -219,33 +223,32 @@
         echo "<br>";
 
         //View 7 Sort Students by GPA
-        echo "<h3>Students with GPA 3.7 or Higher By Course CRN</h3>";
-        $query = "SELECT S.studentNo, S.fName, S.lname, E.mark, E.CRN
-        FROM STUDENT S, ENROLLED E
-        WHERE S.studentNo = ALL
-        (SELECT studentNo
-        FROM ENROLLED)
-        GROUP BY mark >= 80 ";
+        echo "<h3>Students with GPA 3.7 or Higher</h3>";
+        $query = "Select * from
+(select s.studentNo, fName, lName, avg(e.mark) as studentAvg
+from enrolled as e
+left join student as s on s.studentNo = e.studentNo
+GROUP BY e.studentNo)as averages where averages.studentAvg >= 80;";
         
         $qresult = mysqli_query($conn, $query);
         echo "<table>";
         echo "<tr>";
-        echo "<th>Student Number</th><th>First Name</th><th>Last Name</th><th>Grade</th><th>Course CRN</th>";
+        echo "<th>Student Number</th><th>First Name</th><th>Last Name</th><th>Grade</th>";
         echo "</tr>";
         if ($qresult){
             while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
                 $studentNo = $row['studentNo'];
                 $fName = $row['fName'];
                 $lName = $row['lName'];
-                $mark = $row['mark'];
-                $crn = $row['CRN'];
+                $mark = $row['studentAvg'];
+
 
                 echo "<tr>";
                 echo "<td>". $studentNo. "</td>";
                 echo "<td>". $fName. "</td>";
-                echo "<td>". $lName. "/<td>";
+                echo "<td>". $lName. "</td>";
                 echo "<td>". $mark. "</td>";
-                echo "<td>". $crn. "</td>";
+
                 echo "</tr>";
             }
         }
@@ -260,23 +263,24 @@
 
         // View 8
         echo "<h3>Residence Details by Highschool</h3>";
-        $query="SELECT STUDENT.highschool, STUDENT.address, STUDENT.inResidence FROM STUDENT INNER JOIN ENROLLED ON STUDENT.studentNo = ENROLLED.studentNo ORDER BY inResidence ASC, address ASC, highschool ASC";
+        $query="SELECT STUDENT.highschool, count(STUDENT.inResidence)
+FROM STUDENT 
+where STUDENT.inResidence = true
+group by highschool ASC;";
         $qresult = mysqli_query($conn, $query);
         echo "<table>";
         echo "<tr>";
-        echo "<th>Highschool</th><th>Address</th><th>in Residence?</th>";
+        echo "<th>Highschool</th><th>in Residence?</th>";
         echo "</tr>";
 
         if ($qresult){
             while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
                 // Stores details of table array in variables for output.
                 $highschool = $row['highschool'];
-                $address = $row['address'];
-                $residence = $row['inResidence'];
+                $residence = $row['count(STUDENT.inResidence)'];
 
                 echo "<tr>";
                 echo "<td>". $highschool. "</td>";
-                echo "<td>". $address. "</td>";
                 echo "<td>". $residence. "</td>";
                 echo "</tr>";
             }
