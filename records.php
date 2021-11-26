@@ -179,6 +179,44 @@
         echo "</table>";
         echo "<br>";
 
+        // View 5
+        echo "<h3>Students in Software Engineering on Academic Probation</h3>";
+        $query = "SELECT *
+        FROM STUDENT
+        WHERE Program = 'Software Engineering' and studentNo NOT IN (
+            SELECT studentNo
+            FROM STUDENT
+            WHERE academicStanding = 'Clear')";
+    
+        $qresult = mysqli_query($conn, $query);
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Student Number</th><th>First Name</th><th>Last Name</th><th>Program</th><th>Academic Standing</th>";
+        echo "</tr>";
+        if ($qresult){
+            while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
+                $studentNo = $row['studentNo'];
+                $fName = $row['fName'];
+                $lName = $row['lName'];
+                $program = $row['Program'];
+                $astand = $row['academicStanding'];
+
+                echo "<tr>";
+                echo "<td>". $studentNo. "</td>";
+                echo "<td>". $fName. "</td>";
+                echo "<td>". $lName. "</td>";
+                echo "<td>". $program. "</td>";
+                echo "<td>". $astand. "</td>";
+                echo "</tr>";
+            }
+        }
+        else{
+            echo "<tr>";
+            echo "<td>ERROR: NO MATCHING RECORDS!<td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+        echo "<br>";
 
         //View 7 Sort Students by GPA
         echo "<h3>Students with GPA 3.7 or Higher By Course CRN</h3>";
