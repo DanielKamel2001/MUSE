@@ -14,7 +14,7 @@
    echo "<div style='display: flex; background-color:#90CAF9; justify-content: space-around; align-items:center'>";
    echo "<form align='center' method='GET' action= index.php> <input type='submit' class ='navbtn' value='Logout'> </form>";
    echo "<form align='center' method='POST' action= deptStats.php> <input type='submit' class='navbtn' value='Department Statistics'> </form>";
-   echo "<form align='center' method='POST' action= heatmap.php> <input type='submit' class='navbtn' value='Student Location Heatmap'> </form>";
+   echo "<form align='center' method='POST' action= 'map.html'> <input type='submit' class='navbtn' value='Student Location Heatmap'> </form>";
    echo "</div>";
 
     if ($_SESSION['sessionMode'] == "student"){

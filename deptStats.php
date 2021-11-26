@@ -14,7 +14,7 @@
     echo "<div style='display: flex; background-color:#90CAF9; justify-content: space-around; text-align:'center'; align-items:center'>";
     echo "<form align='center' method='GET' action= index.php> <input type='submit' class ='navbtn' value='Logout'> </form>";
     echo "<form align='center''method='POST' action= records.php> <input type='submit' class='navbtn' value='View Records'> </form>";
-    echo "<form align='center'' method='POST' heatmap.php> <input type='submit' class='navbtn' value='Student Location Heatmap'> </form>";
+    echo "<form align='center'' method='POST' action= 'map.html'> <input type='submit' class='navbtn' value='Student Location Heatmap'> </form>";
     echo "</div>";
     
     //start printing non-sensitive views
@@ -163,34 +163,34 @@
     echo "</table>";
     echo"<br>";
 
-
+//became redundent after modification to first view 8
     // Modified View 8 to Remove sensitive details (student address)
-    echo "<h2>Enrolled Student Residence Details by Highschool</h2>";
-    $query="SELECT STUDENT.highschool, STUDENT.inResidence FROM STUDENT INNER JOIN ENROLLED ON STUDENT.studentNo = ENROLLED.studentNo ORDER BY inResidence ASC, highschool ASC";
-    $qresult = mysqli_query($conn, $query);
-    echo "<table>";
-    echo "<tr>";
-    echo "<th>Highschool</th><th>in Residence?</th>";
-
-    if ($qresult){
-        while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
-            // Stores details of table array in variables for output.
-            $highschool = $row['highschool'];
-            $residence = $row['inResidence'];
-
-            echo "<tr>";
-            echo "<td>". $highschool. "<td>";
-            echo "<td>". $residence. "<td>";
-            echo "<tr>";
-        }
-    }
-    else{
-        echo "<tr>";
-        echo "<td>ERROR: NO MATCHING RECORDS!<td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-    echo "<br>";
+//    echo "<h2>Enrolled Student Residence Details by Highschool</h2>";
+//    $query="SELECT STUDENT.highschool, STUDENT.inResidence FROM STUDENT INNER JOIN ENROLLED ON STUDENT.studentNo = ENROLLED.studentNo ORDER BY inResidence ASC, highschool ASC";
+//    $qresult = mysqli_query($conn, $query);
+//    echo "<table>";
+//    echo "<tr>";
+//    echo "<th>Highschool</th><th>in Residence?</th>";
+//
+//    if ($qresult){
+//        while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
+//            // Stores details of table array in variables for output.
+//            $highschool = $row['highschool'];
+//            $residence = $row['inResidence'];
+//
+//            echo "<tr>";
+//            echo "<td>". $highschool. "<td>";
+//            echo "<td>". $residence. "<td>";
+//            echo "<tr>";
+//        }
+//    }
+//    else{
+//        echo "<tr>";
+//        echo "<td>ERROR: NO MATCHING RECORDS!<td>";
+//        echo "</tr>";
+//    }
+//    echo "</table>";
+//    echo "<br>";
 ?>
 <html lang ="en">
 <head>
