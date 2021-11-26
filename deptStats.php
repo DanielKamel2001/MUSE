@@ -94,7 +94,7 @@
 
     // View 10
     echo "<h3>Number of Students in Clear Academic Standing by Program</h3>";
-    $query = "SELECT STUDENT.Program, count(*), FROM STUDENT WHERE student.academicStanding='Clear' GROUP BY Program";
+    $query = "SELECT STUDENT.Program, count(*) FROM STUDENT WHERE student.academicStanding='Clear' GROUP BY Program;";
     $qresult = mysqli_query($conn, $query);
     echo "<table>";
     echo "<tr>";
@@ -104,7 +104,7 @@
     if ($qresult){
         while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
             // Stores details of table array in variables for output.
-            $program = $row['programName'];
+            $program = $row['Program'];
             $number = $row['count(*)'];
 
             echo "<tr>";
