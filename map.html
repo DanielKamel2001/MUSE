@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heatmaps</title>
+    <link rel="stylesheet" href="style/map.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- jsFiddle will insert css and js -->
+
+
+</head>
+
+<div id="floating-panel">
+    <button id="toggle-heatmap" >Toggle Heatmap</button>
+    <button id="change-gradient">Change gradient</button>
+    <button id="change-radius" >Change radius</button>
+    <button id="change-opacity" >Change opacity</button>
+    <form id="back" method="POST" action= "home.php">
+    <input type="submit" value="BACK">
+    </form>
+</div>
+<div id="map"></div>
+<div id="demo">hi</div>
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<!--<script src="test.js"></script>-->
+<!--<script async-->
+<!--        src="https://maps.googleapis.com/maps/api/js?key=____&libraries=visualization&callback=initMap">-->
+<!--</script>-->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=_____&libraries=visualization"></script>
+<!--<script src="map2.js" onload="initMap()"></script>-->
+<script src="map2.js" onload="initMap()"></script>
+</body>
+</html>
+

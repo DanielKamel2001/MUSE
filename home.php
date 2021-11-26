@@ -64,7 +64,7 @@
                 <input type="submit" class="pageButton" value="Department Statistics">
             </form>
 
-            <form method="POST" heatmap.php>
+            <form method="POST" action ="map.html">
                 <input type="submit" class="pageButton" value="Student Location Heatmap">
             </form>
             <br>
