@@ -95,7 +95,7 @@
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         echo "<h2>Records Department for: ";
-        echo $row['fName']. " ". $row['lName']. ", (Staff Number: ". $row['staffNo']. ")<h2>";
+        echo $row['fName']. " ". $row['lName']. " (Staff Number: ". $row['staffNo']. ")<h2>";
         echo "<br>";
         echo "<h3>Assigned Sections for Current Year</h3>";
         echo "<table>";
@@ -146,8 +146,7 @@
         JOIN ENROLLED on STUDENT.studentNo = ENROLLED.studentNo
         JOIN SECTIONS on ENROLLED.CRN = SECTIONS.CRN
         JOIN STAFF on SECTIONS.profNo = STAFF.staffNo
-        ORDER BY CRN ASC";
-
+        ORDER BY SECTIONS.course_code ASC, STUDENT.studentNo ASC";
         $qresult = mysqli_query($conn, $query);
         echo "<table>";
         echo "<tr>";
@@ -166,6 +165,7 @@
                 echo "<td>". $highschool. "</td>";
                 echo "<td>". $studentNo. "</td>";
                 echo "<td>". $mark. "</td>";
+                echo "<td>". $crn. "</td>";
                 echo "<td>". $cc. "</td>";
                 echo "<td>". $profNo. "</td>";
                 echo "</tr>";
