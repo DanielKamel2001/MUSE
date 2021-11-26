@@ -42,6 +42,7 @@ a:hover {
 
 #formBody {
     margin: 20px;
+    cursor: pointer;
 }
 
 #submit {

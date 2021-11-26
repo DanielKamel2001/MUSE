@@ -1,6 +1,5 @@
 <?php 
     // Include and call function to connect to db
-    //include_once 'components/imports.php';
     include_once 'components/dbConnection.php';
 
     $conn = getConnection();
@@ -10,11 +9,16 @@
         die("Connection failed: " . mysqli_connect_error());
     }
     session_start();
-
-
+    
+    //ideally included as componnent
+    echo "<div style='display: flex; background-color:#90CAF9; justify-content: space-around; text-align:'center'; align-items:center'>";
+    echo "<form align='center' method='GET' action= index.php> <input type='submit' class ='navbtn' value='Logout'> </form>";
+    echo "<form align='center''method='POST' action= records.php> <input type='submit' class='navbtn' value='View Records'> </form>";
+    echo "<form align='center'' method='POST' heatmap.php> <input type='submit' class='navbtn' value='Student Location Heatmap'> </form>";
+    echo "</div>";
     
     //start printing non-sensitive views
-    echo "<h3>Program Statistics</h3>";
+    echo "<h2>Program Statistics</h2>";
     //Select all students and group by programName, count studentID
     $query = "select program, count(*) from student group by program";// = 'Software Engineering'";
     $qresult = mysqli_query($conn, $query);
@@ -22,13 +26,14 @@
     echo "<table>";
     echo "<tr>";
     echo "<th>Program</th><th>Students Enrolled</th>";
+    echo "</tr>";
 
     if ($qresult){
         while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
             echo "<tr>";
-            echo "<td>".$row['program']."<td>";
-            echo "<td>".$row['count(*)']."<td>";
-            echo "<tr>";
+            echo "<td>".$row['program']."</td>";
+            echo "<td>".$row['count(*)']."</td>";
+            echo "</tr>";
         }
 
         // Query to count total number of students
@@ -38,9 +43,9 @@
         $totalstring = $total['count(*)'];
 
         echo "<tr>";
-        echo "<td> TOTAL:<td>";
+        echo "<td> TOTAL:</td>";
         echo "<td>".$totalstring."</td>";
-        echo "<tr>";
+        echo "</tr>";
     }
     else{
         echo "<tr>";
@@ -48,7 +53,7 @@
         echo "</tr>";
     }
     echo "</table>";
-
+    echo "<br>";
 
     // View 4
     echo "<h3>Professor Department Lookup</h3>";
@@ -73,10 +78,10 @@
             $dept = $row['department'];
 
             echo "<tr>";
-            echo "<td>".$fName."<td>";
-            echo "<td>".$lName."<td>";
-            echo "<td>".$dept."<td>";
-            echo "<tr>";
+            echo "<td>".$fName."</td>";
+            echo "<td>".$lName."</td>";
+            echo "<td>".$dept."</td>";
+            echo "</tr>";
         }
     }
     else{
@@ -85,6 +90,7 @@
         echo "</tr>";
     }
     echo "</table>";
+    echo "</br>";
 
     // View 10
     echo "<h3>Number of Students in Clear Academic Standing by Program</h3>";
@@ -93,6 +99,8 @@
     echo "<table>";
     echo "<tr>";
     echo "<th>Program Name</th><th>Number of Students</th>";
+    echo "</tr>";
+
     if ($qresult){
         while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
             // Stores details of table array in variables for output.
@@ -100,9 +108,9 @@
             $number = $row['count(*)'];
 
             echo "<tr>";
-            echo "<td>". $program. "<td>";
-            echo "<td>". $number. "<td>";
-            echo "<tr>";
+            echo "<td>". $program. "</td>";
+            echo "<td>". $number. "</td>";
+            echo "</tr>";
         }
     }
     else{
@@ -111,7 +119,7 @@
         echo "</tr>";
     }
     echo "</table>";
-
+    echo "<br>";
 
     // View 3
     echo "<h3>Software Engineering Course Sections</h3>";
@@ -153,10 +161,11 @@
         echo "</tr>";
     }
     echo "</table>";
+    echo"<br>";
 
 
     // Modified View 8 to Remove sensitive details (student address)
-    echo "<h3>Residence Details by Highschool<h3>";
+    echo "<h2>Enrolled Student Residence Details by Highschool</h2>";
     $query="SELECT STUDENT.highschool, STUDENT.inResidence FROM STUDENT INNER JOIN ENROLLED ON STUDENT.studentNo = ENROLLED.studentNo ORDER BY inResidence ASC, highschool ASC";
     $qresult = mysqli_query($conn, $query);
     echo "<table>";
@@ -181,12 +190,18 @@
         echo "</tr>";
     }
     echo "</table>";
+    echo "<br>";
 ?>
 <html lang ="en">
+<head>
+    <title>Department Statistics</title>
+    <link rel="stylesheet" type="text/css" href="style/enrollment.css">
+    <?php include_once("components/fonts.php") ?>
+</head>
     <body>
         <div>
             <form id="back" method="POST" action= "home.php">
-                <input type="submit" value="BACK">
+                <input type="submit" class="bckbutton"  value="BACK">
             </form>
         </div>
     

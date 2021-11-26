@@ -1,0 +1,121 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: Montserrat, sans-serif;
+}
+table{
+    border-collapse: collapse;
+    border: 1px solid #003C71;
+}
+
+table th{
+    font-family: Roboto, sans-serif;
+    padding-top: 16px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 16px;
+    text-align: left;
+    background-color: #E75D2A;
+    color: white;
+    border: 1px solid #003C71;
+}
+
+table td{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    border: 1px solid #003C71;
+}
+
+table tr:nth-child(even){
+    background-color: #e6e6e6;
+}
+
+table tr:hover{
+    background-color: #ddd;
+}
+
+.backshade{
+    background-color: #90CAF9;
+    border-radius: 5px;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+
+.navbar{
+    background-color: #90CAF9;
+    text-align: center;
+    display:inline;
+    padding:10px;
+}
+
+.navbtn{
+    font-family: Roboto, sans-serif;
+    color: white;
+    font-size: 24px;
+    background-color: #0077CA;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.navbtn:hover{
+    background-color: #003C71;
+}
+.padsides{
+    padding-left:25%;
+    padding-right:25%;
+}
+
+.bckButton{
+    font-family: Roboto, sans-serif;
+    color: white;
+    font-size: 24px;
+    background-color: #0077CA;
+    border-radius: 2px;
+    text-align: center;
+    padding: 20px;
+    margin: 60px auto;
+    cursor: pointer;
+    display:block;
+    width: 50%;
+}
+.bckButton:hover{
+    background-color: #003C71;
+}
+
+.pageButton{
+    font-family: Roboto, sans-serif;
+    color: white;
+    font-size: 24px;
+    background-color: #0077CA;
+    border-radius: 2px;
+    text-align: center;
+    padding: 20px;
+    margin: 60px auto;
+    cursor: pointer;
+    display:block;
+    width: 50%;
+}
+
+.pageButton:hover{
+    background-color: #003C71;
+}
+
+#logout{
+    font-family: Roboto, sans-serif;
+    color: white;
+    font-size: 24px;
+    background-color: #E75D2A;
+    border-radius: 2px;
+    text-align: center;
+    padding: 20px;
+    margin: 60px auto;
+    cursor: pointer;
+    display:block;
+    width: 50%;
+
+}
+#logout:hover{
+    background-color: #B1431A;
+}
