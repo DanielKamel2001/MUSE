@@ -34,7 +34,7 @@
         FROM student
         JOIN ENROLLED on STUDENT.studentNo = ENROLLED.studentNo
         JOIN SECTIONS on ENROLLED.CRN = SECTIONS.CRN
-        WHERE studentNo = ". $_SESSION["sessionID"]." ORDER BY SECTIONS.course_code ASC;";
+        WHERE Enrolled.studentNo = ".$_SESSION["sessionID"]." ORDER BY SECTIONS.year ASC, sections.season ;";
         $qresult = mysqli_query($conn, $query);
 
         if ($qresult){
