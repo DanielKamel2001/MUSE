@@ -93,8 +93,8 @@
     echo "</br>";
 
     // View 10
-    echo "<h3>Number of Students in Clear Academic Standing by Program</h3>";
-    $query = "SELECT STUDENT.Program, count(*) FROM STUDENT WHERE student.academicStanding='Clear' GROUP BY Program;";
+    echo "<h3>Number of Students Not in Clear Academic Standing by Program</h3>";
+    $query = "SELECT STUDENT.Program, count(*) FROM STUDENT WHERE student.academicStanding!='Clear' GROUP BY Program;";
     $qresult = mysqli_query($conn, $query);
     echo "<table>";
     echo "<tr>";
@@ -122,46 +122,46 @@
     echo "<br>";
 
     // View 3
-    echo "<h3>Software Engineering Course Sections</h3>";
-    $query="SELECT * FROM sections WHERE course_code IN (SELECT course.course_code FROM course WHERE course.department = 'SOFE')";    
-    $qresult = mysqli_query($conn, $query);
-    echo "<table>";
-    echo "<tr>";
-    echo "<th>CRN</th><th>Course Code</th><th>Section Number</th><th>Year</th>";
-    echo "<th>Season</th><th>Size</th><th>Professor Number</th><th>Class Type</th><th>Class Location</th>";
-    echo "<tr>";
-
-    if ($qresult){
-        while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
-            // Stores details of table array in variables for output.
-            $crn = $row['CRN'];
-            $cc = $row['course_code'];
-            $sectNo = $row['sectionNo'];
-            $year = $row['year'];
-            $season = $row['season'];
-            $size = $row['size'];
-            $ctype = $row['type'];
-            $cloc = $row['location'];
-
-            echo "<tr>";
-            echo "<td>". $crn. "<td>";
-            echo "<td>". $cc. "<td>";
-            echo "<td>". $sectNo. "<td>";
-            echo "<td>". $year. "<td>";
-            echo "<td>". $season. "<td>";
-            echo "<td>". $size. "<td>";
-            echo "<td>". $ctype. "<td>";
-            echo "<td>". $cloc. "<td>";
-            echo "<tr>";
-        }
-    }
-    else{
-        echo "<tr>";
-        echo "<td>ERROR: NO MATCHING RECORDS!<td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-    echo"<br>";
+//    echo "<h3>Software Engineering Course Sections</h3>";
+//    $query="SELECT * FROM sections WHERE course_code IN (SELECT course.course_code FROM course WHERE course.department = 'SOFE')";
+//    $qresult = mysqli_query($conn, $query);
+//    echo "<table>";
+//    echo "<tr>";
+//    echo "<th>CRN</th><th>Course Code</th><th>Section Number</th><th>Year</th>";
+//    echo "<th>Season</th><th>Size</th><th>Professor Number</th><th>Class Type</th><th>Class Location</th>";
+//    echo "<tr>";
+//
+//    if ($qresult){
+//        while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
+//            // Stores details of table array in variables for output.
+//            $crn = $row['CRN'];
+//            $cc = $row['course_code'];
+//            $sectNo = $row['sectionNo'];
+//            $year = $row['year'];
+//            $season = $row['season'];
+//            $size = $row['size'];
+//            $ctype = $row['type'];
+//            $cloc = $row['location'];
+//
+//            echo "<tr>";
+//            echo "<td>". $crn. "<td>";
+//            echo "<td>". $cc. "<td>";
+//            echo "<td>". $sectNo. "<td>";
+//            echo "<td>". $year. "<td>";
+//            echo "<td>". $season. "<td>";
+//            echo "<td>". $size. "<td>";
+//            echo "<td>". $ctype. "<td>";
+//            echo "<td>". $cloc. "<td>";
+//            echo "<tr>";
+//        }
+//    }
+//    else{
+//        echo "<tr>";
+//        echo "<td>ERROR: NO MATCHING RECORDS!<td>";
+//        echo "</tr>";
+//    }
+//    echo "</table>";
+//    echo"<br>";
 
 //became redundent after modification to first view 8
     // Modified View 8 to Remove sensitive details (student address)

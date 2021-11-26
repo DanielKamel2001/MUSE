@@ -293,6 +293,46 @@ group by highschool ASC;";
         echo "</table>";
         echo "<br>";
 
+        //view 3
+        echo "<h3>Grades of Students in your Past Courses</h3>";
+    $query="select CRN, studentNo, mark
+from enrolled as outside
+where exists(
+SELECT course_code, CRN, sectionNo, season, year, type, size
+        FROM SECTIONS
+        WHERE profNo = 55 AND year < YEAR(CURRENT_TIMESTAMP) and outside.crn =sections.crn
+        ORDER BY course_code ASC, CRN ASC, sectionNo ASC);";
+    $qresult = mysqli_query($conn, $query);
+    echo "<table>";
+    echo "<tr>";
+    echo "<th>CRN</th><th>Student number</th><th>mark</th>";
+    echo "<tr>";
+
+    if ($qresult){
+        while($row = mysqli_fetch_array($qresult, MYSQLI_ASSOC)){
+            // Stores details of table array in variables for output.
+            $crn = $row['CRN'];
+            $cc = $row['studentNo'];
+            $mark = $row['mark'];
+
+
+            echo "<tr>";
+            echo "<td>". $crn. "</td>";
+            echo "<td>". $cc. "</td>";
+            echo "<td>". $mark. "</td>";
+            echo "<tr>";
+        }
+    }
+    else{
+        echo "<tr>";
+        echo "<td>ERROR: NO MATCHING RECORDS!</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+    echo"<br>";
+
+
+
     }
 ?>
 <html lang ="en">
