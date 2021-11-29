@@ -266,7 +266,7 @@ GROUP BY e.studentNo)as averages where averages.studentAvg >= 80;";
         $query="SELECT STUDENT.highschool, count(STUDENT.inResidence)
 FROM STUDENT 
 where STUDENT.inResidence = true
-group by highschool ASC;";
+group by highschool;";
         $qresult = mysqli_query($conn, $query);
         echo "<table>";
         echo "<tr>";
