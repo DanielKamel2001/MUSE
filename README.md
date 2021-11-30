@@ -38,21 +38,21 @@ Group 9: Adris Azimi, Abida Choudhury, Daniel Gohara Kamel, Jessica Leishman
     - [staff.csv](https://github.com/DanielKamel2001/MUSE/blob/main/Database%20Copy%20and%20CSVs/staff.csv)
     - [student.csv](https://github.com/DanielKamel2001/MUSE/blob/main/Database%20Copy%20and%20CSVs/student.csv)
     
-- ### [Project Overview]()
+- ### [Project Overview](https://github.com/DanielKamel2001/MUSE#project-overview-1)
 
-- ### [Installation instructions (Windows)]()
-    - [Setting Up WAMP server]()
-    - [Downloading the Frontend Application from Github]()
-    - [Setting up the sample database]()
-    - [Modifying the database configuration instructions (php.ini)]()
-    - [Running the Project]()
+- ### [Installation instructions (Windows)](https://github.com/DanielKamel2001/MUSE#installation-instructions)
+    - [Setting Up WAMP server](https://github.com/DanielKamel2001/MUSE#setting-up-wamp-server)
+    - [Downloading the Frontend Application from Github](https://github.com/DanielKamel2001/MUSE#downloading-the-frontend-application-from-github)
+    - [Setting up the sample database](https://github.com/DanielKamel2001/MUSE#setting-up-the-sample-database)
+    - [Modifying the database configuration instructions (php.ini)](https://github.com/DanielKamel2001/MUSE#modifying-the-database-configuration-instructions)
+    - [Running the Project](https://github.com/DanielKamel2001/MUSE#running-the-project)
 
-- ### [System Design]()
+- ### [System Design](https://github.com/DanielKamel2001/MUSE#system-design-1)
     - [Use Case Diagram](https://github.com/DanielKamel2001/MUSE/blob/main/Use%20Case%20Diagram.png)
     - [System Navigation Flowchart](https://github.com/DanielKamel2001/MUSE/blob/main/System%20Navigation%20Flowchart.png)
     - [System Layer Diagram](https://github.com/DanielKamel2001/MUSE/blob/main/System%20Layer%20Diagram.png)
 
-- ### [Next Steps]()
+- ### [Next Steps](https://github.com/DanielKamel2001/MUSE#next-steps-1)
 
 <br>
 
