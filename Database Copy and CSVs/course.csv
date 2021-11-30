@@ -1,0 +1,134 @@
+course_code,course_name,creditHours,department,prequisiteHours
+COMM 1050U,Technical Communications,3,COMM,NULL
+ENGR 1015U,Introduction  to Engineering ,3,ENGR,NULL
+MATH 1010U,Calculus  I,3,MATH,NULL
+MATH 1850U,Linear  Algebra for Engineers,3,MATH,NULL
+PHY 1010U,Physics I,3,PHY,NULL
+CHEM 1800U,Chemistry for Engineers,3,CHEM,NULL
+ENGR 1025U,Engineering  Design,3,ENGR,NULL
+ENGR 1200U,Introduction  to Programming  for Engineers,3,ENGR,NULL
+MATH 1020U,Calculus  II  ,3,MATH,NULL
+PHY 1020U,Physics II ,3,PHY,NULL
+SSCI 1470U,Impact  of  Science and Technology  on  Society,3,SSCI,NULL
+ELEE 2110U,Discrete Mathematics for  Engineers,3,ELEE,NULL
+ELEE 2790U,Electric  Circuits ,3,ELEE,NULL
+SOFE 2710U,Object  Oriented Programming  and Design ,3,SOFE,NULL
+SOFE 2800U,Web Programming,3,SOFE,NULL
+SOFE 2850U,Natural  Foundations  for Information  Technology,3,SOFE,NULL
+ELIB 2000U,Liberal  Studies  Elective,3,,NULL
+ELEE 2450U,Digital  Systems,3,ELEE,NULL
+MATH 2800U,Statistics  and Probability  for Engineers ,3,MATH,NULL
+SOFE 2715U,Data Structures,3,SOFE,NULL
+SOFE 2720U,Principles  of  Software and Requirements Engineering,3,SOFE,NULL
+ESCI 2000U,Science  Elective,3,,NULL
+ELEE 3450U,Microprocessors  and Computer  Architecture,3,ELEE,NULL
+SOFE 3200U,Systems  Programming,3,SOFE,NULL
+SOFE 3650U,Software Design  and Architectures,3,SOFE,NULL
+SOFE 3700U,Data Management Systems,3,SOFE,NULL
+SOFE 3770U,Design  and Analysis  of Algorithms,3,SOFE,NULL
+ELIB 3000U,Liberal  Studies  Elective,3,,NULL
+ENGR 3360U,Engineering  Economics,3,ENGR,NULL
+SOFE 3490U,Software Project Management,3,SOFE,54
+SOFE 3720U,Introduction  to  Artificial Intelligence,3,SOFE,NULL
+SOFE 3850U,Computer  Networks,3,SOFE,54
+SOFE 3950U,Operating  Systems ,3,SOFE,NULL
+SOFE 3980U,Software Quality,3,SOFE,NULL
+ENGR 4940U,"Capstone Systems Design  for  Electrical, Computer  and Software Engineering  I ",3,ENGR,NULL
+SOFE 4590U,Embedded Systems  ,3,SOFE,NULL
+SOFE 4790U,Distributed Systems,3,SOFE,NULL
+SOFE 4850U,User Interfaces,3,SOFE,NULL
+EENGR 4000,Engineering Elective,3,,NULL
+ENGR 4760U,"Ethics,  Law  and Professionalism  for Engineers",3,ENGR,NULL
+ENGR 4941U,"Capstone Systems Design  for  Electrical, Computer  and Software Engineering  II",3,ENGR,NULL
+SOFE 4840U,Software and Computer Security,3,SOFE,NULL
+EENGR 4000,Engineering Elective,3,,NULL
+EENGR 4000,Engineering Elective,3,,NULL
+COMM 1050U,Technical Communications,3,COMM,NULL
+ENGR 1015U,Introduction  to Engineering ,3,ENGR,NULL
+MATH 1010U,Calculus  I,3,MATH,NULL
+MATH 1850U,Linear  Algebra for Engineers,3,MATH,NULL
+PHY 1010U,Physics I,3,PHY,NULL
+CHEM 1800U,Chemistry for Engineers,3,CHEM,NULL
+ENGR 1025U,Engineering  Design,3,ENGR,NULL
+ENGR 1200U,Introduction  to Programming  for Engineers,3,ENGR,NULL
+MATH 1020U,Calculus  II  ,3,MATH,NULL
+PHY 1020U,Physics II ,3,PHY,NULL
+SSCI 1470U,Impact  of  Science and Technology  on  Society,3,SSCI,NULL
+ELEE 2110U,Discrete Mathematics for Engineers,3,ELEE,NULL
+ELEE 2200U,Electrical Engineering Fundamentals ,3,ELEE,NULL
+MATH 2860U,Differential Equations for Engineers  ,3,MATH,NULL
+MECE 2640U,Thermodynamics and Heat Transfer,3,MECE,NULL
+SOFE 2710U,Object Oriented Programming and Design,3,SOFE,NULL
+ELEE 2210U,Circuit analysis,3,ELEE,NULL
+ELEE 2250U,Introductory Electronics,3,ELEE,NULL
+ELEE 2450U,Digital Systems,3,ELEE,NULL
+ELEE 2520U,Complex Analysis for Engineers,3,ELEE,NULL
+ELEE 2530U,Fundamentals of Electromagnetics,3,ELEE,NULL
+ELEE 2100U,Computational Engineering Applications ,3,ELEE,NULL
+ELEE 3110U,Signals and Systems,3,ELEE,NULL
+ELEE 3230U,Electronic Circuit Design      ,3,ELEE,NULL
+ELEE 3240U,Applications for Electromagnetics,3,ELEE,NULL
+ELEE 3250U,Electric Machines,3,ELEE,NULL
+ELEE 3450U,Microprocessors and Computer Architecture,3,ELEE,NULL
+ELIB 3000U,Liberal Elective,3,ELIB,NULL
+ELEE 3070U,Probability and Random Signals    ,3,ELEE,NULL
+ELEE 3100U,Introduction to Control Systems  ,3,ELEE,NULL
+ELEE 3130U,Communication Systems,3,ELEE,NULL
+ELEE 3180U,Design Principles & Project Management in Electrical Engineering  ,3,ELEE,NULL
+ELEE 3260U,Power Systems,3,ELEE,NULL
+ENGR 3360U,Engineering Economics,3,ENGR,NULL
+ELEE 4150U,Advanced Control Systems ,3,ELEE,NULL
+ELEE 4420U,Digital Signal Processing ,3,ELEE,NULL
+ELEE 4750U,Microwave and RF Circuits,3,ELEE,NULL
+ENGR 4940U,"Capstone Systems Design for Electrical, Computer and Software Engineering I",3,ENGR,NULL
+EENGR 4000,Engineering Elective,3,,NULL
+ELEE 4500U,Wireless Networks,3,ELEE,NULL
+ENGR 4760U,"Ethics, Law and Professionalism for Engineers ",3,ENGR,NULL
+ELEE 4941U,"Capstone Systems Design for Electrical, Computer and Software Engineering II",3,ELEE,NULL
+EENGR 4000,Engineering Elective,3,,NULL
+ELIB 1000U,Liberal Elective,3,,NULL
+COMM 1050U,Technical Communications,3,COMM,NULL
+ENGR 1015U,Introduction  to Engineering ,3,ENGR,NULL
+MATH 1010U,Calculus  I,3,MATH,NULL
+MATH 1850U,Linear  Algebra for Engineers,3,MATH,NULL
+PHY 1010U,Physics I,3,PHY,NULL
+CHEM 1800U,Chemistry for Engineers,3,CHEM,NULL
+ENGR 1025U,Engineering  Design,3,ENGR,NULL
+ENGR 1200U,Introduction  to Programming  for Engineers,3,ENGR,NULL
+MATH 1020U,Calculus  II  ,3,MATH,NULL
+PHY 1020U,Physics II ,3,PHY,NULL
+SSCI 1470U,Impact  of  Science and Technology  on  Society,3,SSCI,NULL
+ELEE 2200U,Electrical  Engineering Fundamentals,3,ELEE,NULL
+MATH 2860U,Differential  Equations  for Engineers,3,MATH,NULL
+MECE 2230U,Statics,3,MECE,NULL
+MECE 2310U,Concurrent  Engineering and Design,3,MECE,NULL
+SOFE 2710U,Object  Oriented Programming and Design,3,SOFE,NULL
+ELEE  2210U,Circuit  Analysis,3,ELEE,NULL
+ELEE  2250U,Introductory  Electronics,3,ELEE,NULL
+MATH 2070U,Numerical  Methods,3,MATH,NULL
+MECE 2420U,Solid Mechanics  I,3,MECE,NULL
+MECE 2430U,Dynamics,3,MECE,NULL
+MATH  2800U,Statistics  and Probability for  Engineers,3,MATH,NULL
+ELEE  3230U,Electronic  Circuit  Design,3,ELEE,NULL
+MANE 2220U,Structure and Properties  of Materials,3,MANE,NULL
+MECE 2640U,Thermodynamics  and Heat Transfer,3,MECE,NULL
+MECE 3030U,Computer-Aided Design,3,MECE,NULL
+MECE 3270U,Kinematics  and Dynamics  of Machines,3,MECE,NULL
+MECE 3350U,Control  Systems,3,MECE,NULL
+ENGR 3360U,Engineering Economics,3,ENGR,NULL
+MECE 2860U,Fluid Mechanics,3,MECE,NULL
+MECE 3220U,Machine Design,3,MECE,NULL
+METE 3100U,Actuators  and Power Electronics,3,METE,NULL
+METE 3200U,Sensors  and Instrumentation,3,METE,NULL
+METE 3350U,Microprocessors  and Digital  Systems,3,METE,NULL
+ENGR 4950U,"Capstone Systems Design for  Mechanical, Automotive, Mechatronics  and Manufacturing Engineering I",3,ENGR,NULL
+MANE 4280U,Robotics  &  Automation,3,MANE,NULL
+METE 4100U,Mechatronics  Design,3,METE,NULL
+METE 4400U,Introduction to Real-Time Embedded Systems,3,METE,NULL
+EENGR 4000U,Engineering Elective,3,,NULL
+ELIB 4000U,Liberal Elective,3,,NULL
+ENGR 4760U,"Ethics,  Law  and Professionalism  for Engineers",3,ENGR,NULL
+ENGR 4951U,"Capstone Systems  Design for  Mechanical,  Automotive, Mechatronics  and Manufacturing Engineering II",3,ENGR,NULL
+METE 4200U,Industrial  Automation,3,METE,NULL
+EENGR 4000U,Engineering Elective,3,,NULL
+ELIB 4000U,Liberal Elective,3,,NULL

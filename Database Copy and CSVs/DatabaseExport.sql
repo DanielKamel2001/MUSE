@@ -6,9 +6,9 @@ START TRANSACTION;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-DROP DATABASE IF EXISTS `enrolement_records`;
-CREATE DATABASE IF NOT EXISTS `enrolement_records` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `enrolement_records`;
+DROP DATABASE IF EXISTS `enrollment_records`;
+CREATE DATABASE IF NOT EXISTS `enrollment_records` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `enrollment_records`;
 
 DROP TABLE IF EXISTS `belongs_to`;
 CREATE TABLE IF NOT EXISTS `belongs_to` (
