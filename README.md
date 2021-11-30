@@ -46,6 +46,7 @@ Group 9: Adris Azimi, Abida Choudhury, Daniel Gohara Kamel, Jessica Leishman
     - [Setting up the sample database](https://github.com/DanielKamel2001/MUSE#setting-up-the-sample-database)
     - [Modifying the database configuration instructions (php.ini)](https://github.com/DanielKamel2001/MUSE#modifying-the-database-configuration-instructions)
     - [Running the Project](https://github.com/DanielKamel2001/MUSE#running-the-project)
+    - [Adding Personal API Key](https://github.com/DanielKamel2001/MUSE#adding-personal-api-key)
 
 - ### [System Design](https://github.com/DanielKamel2001/MUSE#system-design-1)
     - [Use Case Diagram](https://github.com/DanielKamel2001/MUSE/blob/main/Use%20Case%20Diagram.png)
@@ -53,6 +54,7 @@ Group 9: Adris Azimi, Abida Choudhury, Daniel Gohara Kamel, Jessica Leishman
     - [System Layer Diagram](https://github.com/DanielKamel2001/MUSE/blob/main/System%20Layer%20Diagram.png)
 
 - ### [Next Steps](https://github.com/DanielKamel2001/MUSE#next-steps-1)
+- ### [Final Report (pdf)](https://github.com/DanielKamel2001/MUSE/blob/main/Group%209%20Sofe%203700%20MUSE%20Final%20Report.pdf)
 
 <br>
 
@@ -102,6 +104,9 @@ Student login:
 Staff login:
  ID Number: 15, Password: 19570810
 
+### Adding Personal API Key
+In order to view the student heatmap feature of the application, the Google Maps API was used. An API key is needed to use the API. The key identifies which user is requesting the APIservice and bills them accordingly. A key can be created by creating an account at https://console.cloud.google.com/google/maps-apis/.
+Other parameters can be passed through in order to request other information or services from the Google API, notably geocoding which is retrieving longitude and latitude information from an address. 
 
 ## System Design
 ### Use Case Diagram
